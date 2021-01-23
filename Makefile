@@ -9,10 +9,10 @@ RM = rm -rf *.o libfirewall.so firewall.exe
 
 all:firewall.exe
 
-libfirewall.so: string.cpp field.cpp ip.cpp port.cpp
+libfirewall.so: string.cpp field.cpp ip.cpp port.cpp main.cpp
 	$(CXX) $(CXXFLAGS) -shared $(CPPS) -o libfirewall.so
 
-firewall.exe: libfirewall.so string.cpp field.cpp ip.cpp port.cpp 
+firewall.exe: libfirewall.so string.cpp field.cpp ip.cpp port.cpp main.cpp
 	$(CXXLINK) $(CXXFLAGS) main.cpp -o firewall.exe -lfirewall -linput -L.
 
 #Short syntax
